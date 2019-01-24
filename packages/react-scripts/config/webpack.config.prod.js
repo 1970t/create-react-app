@@ -32,6 +32,8 @@ const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 // @remove-on-eject-begin
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 // @remove-on-eject-end
+const DynamicCdnWebpackPlugin = require('dynamic-cdn-webpack-plugin');
+//npm install --save dynamic-cdn-webpack-plugin module-to-cdn
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -483,6 +485,7 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new DynamicCdnWebpackPlugin(),
     // Inlines the webpack runtime script. This script is too small to warrant
     // a network request.
     shouldInlineRuntimeChunk &&
