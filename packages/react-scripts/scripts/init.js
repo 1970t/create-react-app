@@ -19,7 +19,7 @@ const path = require('path');
 const chalk = require('chalk');
 const execSync = require('child_process').execSync;
 const spawn = require('react-dev-utils/crossSpawn');
-const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
+//const { defaultBrowsers } = require('react-dev-utils/browsersHelper');
 const os = require('os');
 const verifyTypeScriptSetup = require('./utils/verifyTypeScriptSetup');
 
@@ -107,7 +107,12 @@ module.exports = function(
   };
 
   // Setup the browsers list
-  appPackage.browserslist = defaultBrowsers;
+  appPackage.browserslist = [
+    '>0.2%',
+    'not dead',
+    'not ie <= 8',
+    'not op_mini all',
+  ];//defaultBrowsers;
 
   fs.writeFileSync(
     path.join(appPath, 'package.json'),
